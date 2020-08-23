@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		4B5754FA24F2A31C00FEC129 /* CreateTaskViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B5754F824F2A31C00FEC129 /* CreateTaskViewController.swift */; };
+		4B5754FB24F2A31C00FEC129 /* CreateTaskViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4B5754F924F2A31C00FEC129 /* CreateTaskViewController.xib */; };
 		4B87E4DC24F0C79D000B34EC /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B87E4DB24F0C79D000B34EC /* AppDelegate.swift */; };
 		4B87E4DE24F0C79D000B34EC /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B87E4DD24F0C79D000B34EC /* SceneDelegate.swift */; };
 		4B87E4E524F0C7A1000B34EC /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4B87E4E424F0C7A1000B34EC /* Assets.xcassets */; };
@@ -16,6 +18,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		4B5754F824F2A31C00FEC129 /* CreateTaskViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateTaskViewController.swift; sourceTree = "<group>"; };
+		4B5754F924F2A31C00FEC129 /* CreateTaskViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CreateTaskViewController.xib; sourceTree = "<group>"; };
 		4B87E4D824F0C79D000B34EC /* LoadToSwifter.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LoadToSwifter.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4B87E4DB24F0C79D000B34EC /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		4B87E4DD24F0C79D000B34EC /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -37,6 +41,22 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		4B5754FC24F2A33000FEC129 /* Create */ = {
+			isa = PBXGroup;
+			children = (
+				4B5754F824F2A31C00FEC129 /* CreateTaskViewController.swift */,
+				4B5754F924F2A31C00FEC129 /* CreateTaskViewController.xib */,
+			);
+			path = Create;
+			sourceTree = "<group>";
+		};
+		4B579CDF24F10C0E0043CE0B /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
 		4B87E4CF24F0C79D000B34EC = {
 			isa = PBXGroup;
 			children = (
@@ -61,6 +81,7 @@
 				4B87E4E424F0C7A1000B34EC /* Assets.xcassets */,
 				4B87E4E624F0C7A1000B34EC /* LaunchScreen.storyboard */,
 				4B87E4E924F0C7A1000B34EC /* Info.plist */,
+				4B579CDF24F10C0E0043CE0B /* Model */,
 				4B87E4F424F0C84B000B34EC /* ViewController */,
 			);
 			path = LoadToSwifter;
@@ -79,6 +100,7 @@
 			isa = PBXGroup;
 			children = (
 				4B87E4F324F0C83A000B34EC /* List */,
+				4B5754FC24F2A33000FEC129 /* Create */,
 			);
 			path = ViewController;
 			sourceTree = "<group>";
@@ -144,6 +166,7 @@
 				4B87E4E824F0C7A1000B34EC /* LaunchScreen.storyboard in Resources */,
 				4B87E4E524F0C7A1000B34EC /* Assets.xcassets in Resources */,
 				4B87E4F224F0C813000B34EC /* ListViewController.xib in Resources */,
+				4B5754FB24F2A31C00FEC129 /* CreateTaskViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -157,6 +180,7 @@
 				4B87E4DC24F0C79D000B34EC /* AppDelegate.swift in Sources */,
 				4B87E4DE24F0C79D000B34EC /* SceneDelegate.swift in Sources */,
 				4B87E4F124F0C813000B34EC /* ListViewController.swift in Sources */,
+				4B5754FA24F2A31C00FEC129 /* CreateTaskViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
