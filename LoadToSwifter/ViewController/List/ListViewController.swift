@@ -13,7 +13,8 @@ class ListViewController: UIViewController {
     //型エイリアスでタプル型のMySectionRowを定義
     typealias MySectionRows = (section: String, row: Array<String>)
     
-    var mySectionRows = [MySectionRows]()
+    var mySectionRows: [MySectionRows] = [("Xcode", ["1", "2"]), ("Swift基礎", ["3", "4"]), ("ライブラリ", ["5", "6"]), ("デザインの実装", ["7", "8"]), ("データ通信", ["9", "10"]), ("あったら良いスキル", ["11", "12"]), ("その他", ["13", "14"])]
+    
     var addBtn: UIBarButtonItem!
     
     @IBOutlet weak var todoTable: UITableView!
@@ -22,17 +23,13 @@ class ListViewController: UIViewController {
         super.viewDidLoad()
         setTableView()
         
-        mySectionRows.append(("Xcode", ["1", "2"]))
-        mySectionRows.append(("Swift基礎", ["3", "4"]))
-        mySectionRows.append(("ライブラリ", ["5", "6"]))
-        mySectionRows.append(("デザインの実装", ["7", "8"]))
-        mySectionRows.append(("データ通信", ["9", "10"]))
-        mySectionRows.append(("あったら良いスキル", ["11", "12"]))
-        mySectionRows.append(("その他", ["13", "14"]))
-        
         addBtn = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(self.onClick))
         self.navigationItem.rightBarButtonItem = addBtn
-       
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        todoTable.reloadData()
     }
     
    
@@ -40,21 +37,6 @@ class ListViewController: UIViewController {
         
         let createTaskVC = CreateTaskViewController()
         present(createTaskVC, animated: true, completion: nil)
-//        let alertController = UIAlertController(title: "課題名", message: "必要なスキルを追加", preferredStyle: UIAlertController.Style.alert)
-//        alertController.addTextField(configurationHandler: nil)
-//        alertController.addTextField(configurationHandler: nil)
-//        present(alertController, animated: true, completion: nil)
-//        //alertController.addTextField(configurationHandler: nil)
-        
-        
-//        let okButton = UIAlertAction(title: "追加",
-//                                     style: UIAlertAction.Style.default,
-//                                     //追加ボタンが押された時の処理
-//                                     handler: {(action: UIAlertAction) in
-//                                        if let textField = alertController.textFields?.first {
-//
-//                                        }
-  //      })
     }
 }
 
