@@ -26,16 +26,11 @@ class ListViewController: UIViewController {
         addBtn = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(self.onClick))
         self.navigationItem.rightBarButtonItem = addBtn
     }
-    
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-        todoTable.reloadData()
-    }
-    
    
     @objc func onClick(){
         
         let createTaskVC = CreateTaskViewController()
+        createTaskVC.delegate = self
         present(createTaskVC, animated: true, completion: nil)
     }
 }
@@ -47,6 +42,15 @@ private extension ListViewController {
         todoTable.delegate = self
         todoTable.dataSource = self
         todoTable.register(UITableViewCell.self, forCellReuseIdentifier: "cell")
+    }
+}
+
+//MARK: -createButtonを押した時の値の受け渡し
+extension ListViewController: CreateTaskViewControllerDelegate {
+    
+    func addTask(genreIndex: Int, name: String) {
+        self.mySectionRows[genreIndex].row.insert(name, at: 0)
+        todoTable.reloadData()
     }
 }
 

@@ -8,14 +8,18 @@
 
 import UIKit
 
+protocol  CreateTaskViewControllerDelegate: class {
+    func addTask(genreIndex: Int, name: String)
+}
+
 class CreateTaskViewController: UIViewController {
     
     var pickerView: UIPickerView = UIPickerView()
     let list: [String] = ["Xcode", "Swift基礎", "ライブラリ", "デザインの実装", "データ通信", "あったら良いスキル", "その他"]
     
     @IBOutlet weak var nameTextField: UITextField!
-    
     @IBOutlet weak var genreTextField: UITextField!
+    weak var delegate: CreateTaskViewControllerDelegate?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -29,27 +33,11 @@ class CreateTaskViewController: UIViewController {
     }
     
     @IBAction func createButton(_ sender: Any) {
-        //インスタンス化
-        let listVC = ListViewController.init(nibName: "ListViewController", bundle: nil)
-        let number = sectionNumbering()
-        
-        //mySectionRows配列の中から、Pickerviewで指定されたsectionに対応する要素を指定し、row配列の中に格納したい
-        if let text = nameTextField.text {
-        listVC.mySectionRows[number].row.insert(text, at: 0)
-            print(listVC.mySectionRows[number])
-        }
-        //todoTableにデータが入ったことを知らせたい
-        if let table = listVC.todoTable {
-            table.insertRows(at: [IndexPath(row: 0, section: number )], with: UITableView.RowAnimation.none)
-        }else {
-            print("tableがありません")
-        }
-        
+        print(#function)
+        let number = genreIndex(genreTextField.text ?? "その他")
+        delegate?.addTask(genreIndex: number, name: nameTextField.text ?? "名前なし")
         dismiss(animated: true, completion: nil)
     }
-    
-    
-    
 }
 
 //MARK: - メソッド
@@ -75,22 +63,30 @@ private extension CreateTaskViewController {
 
 //MARK: - PickerViewの値を数値に変換
     //mySectionRows[sectionNumber]として使用する
-    func sectionNumbering() -> Int {
-        let sectionString = genreTextField.text
+    func genreIndex(_ genreText: String) -> Int {
         let sectionNumber : Int
-        if sectionString == "Xcode" {
-             sectionNumber = 0
-        }else if sectionString == "Swift基礎"{
+        switch genreText {
+        case list[0]:
+            sectionNumber = 0
+        case list[1]:
             sectionNumber = 1
-        }else if sectionString == "デザインの実装" {
+        case list[2]:
             sectionNumber = 2
-        }else {
+        case list[3]:
+            sectionNumber = 3
+        case list[4]:
+            sectionNumber = 4
+        case list[5]:
+            sectionNumber = 5
+        case list[6]:
             sectionNumber = 6
+        default:
+            sectionNumber = 7
         }
         return sectionNumber
     }
-    
 }
+
 
 //MARK: - PickerViewDelegate
 extension CreateTaskViewController: UIPickerViewDelegate {
@@ -102,10 +98,9 @@ extension CreateTaskViewController: UIPickerViewDelegate {
     func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
         list[row]
     }
-    
-//MARK: - PickerViewDatasource
 }
-    
+
+ //MARK: - PickerViewDatasource
 extension CreateTaskViewController: UIPickerViewDataSource {
     
     func numberOfComponents(in pickerView: UIPickerView) -> Int {
@@ -114,4 +109,5 @@ extension CreateTaskViewController: UIPickerViewDataSource {
 }
     
     
+
 
