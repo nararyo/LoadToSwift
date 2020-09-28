@@ -11,13 +11,11 @@ import UIKit
 class ListViewController: UIViewController {
 
     //型エイリアスでタプル型のMySectionRowを定義
-    typealias MySectionRows = (section: String, row: Array<String>)
-    
-    var mySectionRows: [MySectionRows] = [("Xcode", ["1", "2"]), ("Swift基礎", ["3", "4"]), ("ライブラリ", ["5", "6"]), ("デザインの実装", ["7", "8"]), ("データ通信", ["9", "10"]), ("あったら良いスキル", ["11", "12"]), ("その他", ["13", "14"])]
-    
+    typealias MySectionRows = (section: String, row: Array<Task>)
+    var mySectionRows: [MySectionRows] = [("Xcode", []), ("Swift基礎", []), ("ライブラリ", []), ("デザインの実装", []), ("データ通信", []), ("あったら良いスキル", []), ("その他", [])]
     var addBtn: UIBarButtonItem!
-    
     @IBOutlet weak var todoTable: UITableView!
+
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -35,6 +33,7 @@ class ListViewController: UIViewController {
     }
 }
 
+
 // MARK: -tableviewのセットアップ
 private extension ListViewController {
     
@@ -49,8 +48,13 @@ private extension ListViewController {
 extension ListViewController: CreateTaskViewControllerDelegate {
     
     func addTask(genreIndex: Int, name: String) {
-        self.mySectionRows[genreIndex].row.insert(name, at: 0)
+        let task = Task(name: name)
+        if let task = task {
+            self.mySectionRows[genreIndex].row.insert(task, at: 0)
+            todoTable.reloadData()
+        }
         todoTable.reloadData()
+        print(mySectionRows[genreIndex].row[0].name ?? "nanasi")
     }
 }
 
@@ -80,8 +84,16 @@ extension ListViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath)
-        cell.textLabel?.text = "\(mySectionRows[indexPath.section].row[indexPath.row])"
+        cell.textLabel?.text = "\(mySectionRows[indexPath.section].row[indexPath.row].name ?? "名無し")"
         return cell
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        print(#function)
+        let showVC = ShowViewController()
+        showVC.text = mySectionRows[indexPath.section].row[indexPath.row].name!
+        navigationController?.pushViewController(showVC, animated: true)
+        tableView.deselectRow(at: indexPath, animated: true)
     }
     
 }
