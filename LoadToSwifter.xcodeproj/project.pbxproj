@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		4B333E262521AEC00022DD26 /* ShowViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B333E242521AEC00022DD26 /* ShowViewController.swift */; };
+		4B333E272521AEC00022DD26 /* ShowViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4B333E252521AEC00022DD26 /* ShowViewController.xib */; };
+		4B333E2A2521B3420022DD26 /* Task.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B333E292521B3420022DD26 /* Task.swift */; };
 		4B5754FA24F2A31C00FEC129 /* CreateTaskViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B5754F824F2A31C00FEC129 /* CreateTaskViewController.swift */; };
 		4B5754FB24F2A31C00FEC129 /* CreateTaskViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4B5754F924F2A31C00FEC129 /* CreateTaskViewController.xib */; };
 		4B87E4DC24F0C79D000B34EC /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B87E4DB24F0C79D000B34EC /* AppDelegate.swift */; };
@@ -18,6 +21,9 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		4B333E242521AEC00022DD26 /* ShowViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShowViewController.swift; sourceTree = "<group>"; };
+		4B333E252521AEC00022DD26 /* ShowViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ShowViewController.xib; sourceTree = "<group>"; };
+		4B333E292521B3420022DD26 /* Task.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Task.swift; sourceTree = "<group>"; };
 		4B5754F824F2A31C00FEC129 /* CreateTaskViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateTaskViewController.swift; sourceTree = "<group>"; };
 		4B5754F924F2A31C00FEC129 /* CreateTaskViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CreateTaskViewController.xib; sourceTree = "<group>"; };
 		4B87E4D824F0C79D000B34EC /* LoadToSwifter.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LoadToSwifter.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -41,6 +47,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		4B333E282521AED80022DD26 /* Show */ = {
+			isa = PBXGroup;
+			children = (
+				4B333E242521AEC00022DD26 /* ShowViewController.swift */,
+				4B333E252521AEC00022DD26 /* ShowViewController.xib */,
+			);
+			path = Show;
+			sourceTree = "<group>";
+		};
 		4B5754FC24F2A33000FEC129 /* Create */ = {
 			isa = PBXGroup;
 			children = (
@@ -53,6 +68,7 @@
 		4B579CDF24F10C0E0043CE0B /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				4B333E292521B3420022DD26 /* Task.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -101,6 +117,7 @@
 			children = (
 				4B87E4F324F0C83A000B34EC /* List */,
 				4B5754FC24F2A33000FEC129 /* Create */,
+				4B333E282521AED80022DD26 /* Show */,
 			);
 			path = ViewController;
 			sourceTree = "<group>";
@@ -164,6 +181,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				4B87E4E824F0C7A1000B34EC /* LaunchScreen.storyboard in Resources */,
+				4B333E272521AEC00022DD26 /* ShowViewController.xib in Resources */,
 				4B87E4E524F0C7A1000B34EC /* Assets.xcassets in Resources */,
 				4B87E4F224F0C813000B34EC /* ListViewController.xib in Resources */,
 				4B5754FB24F2A31C00FEC129 /* CreateTaskViewController.xib in Resources */,
@@ -177,6 +195,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4B333E2A2521B3420022DD26 /* Task.swift in Sources */,
+				4B333E262521AEC00022DD26 /* ShowViewController.swift in Sources */,
 				4B87E4DC24F0C79D000B34EC /* AppDelegate.swift in Sources */,
 				4B87E4DE24F0C79D000B34EC /* SceneDelegate.swift in Sources */,
 				4B87E4F124F0C813000B34EC /* ListViewController.swift in Sources */,
