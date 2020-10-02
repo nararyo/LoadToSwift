@@ -7,12 +7,12 @@
 //
 
 import UIKit
+import Cosmos
 
 class ListTableViewCell: UITableViewCell {
     
-    
     @IBOutlet weak var taskLabel: UILabel!
-    
+    @IBOutlet weak var cosmosView: CosmosView!
     
     override func awakeFromNib() {
         super.awakeFromNib()

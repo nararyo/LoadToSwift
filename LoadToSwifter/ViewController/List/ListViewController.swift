@@ -41,6 +41,7 @@ private extension ListViewController {
         todoTable.delegate = self
         todoTable.dataSource = self
         todoTable.register(UITableViewCell.self, forCellReuseIdentifier: "cell")
+        todoTable.register(UINib.init(nibName: "ListTableViewCell", bundle: nil), forCellReuseIdentifier: "ListTableViewCell")
     }
 }
 
@@ -83,8 +84,11 @@ extension ListViewController: UITableViewDelegate {
     //セルの設定
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
-        let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath)
-        cell.textLabel?.text = "\(mySectionRows[indexPath.section].row[indexPath.row].name ?? "名無し")"
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: "ListTableViewCell", for: indexPath) as? ListTableViewCell else {
+            return UITableViewCell()
+        }
+        cell.cosmosView.rating = 0
+        cell.taskLabel?.text = "\(mySectionRows[indexPath.section].row[indexPath.row].name ?? "名無し")"
         return cell
     }
     
