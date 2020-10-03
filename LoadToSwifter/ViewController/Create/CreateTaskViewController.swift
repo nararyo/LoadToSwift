@@ -23,6 +23,7 @@ class CreateTaskViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        setUpNameTextField()
         setUpPickerView()
     }
     
@@ -43,7 +44,23 @@ class CreateTaskViewController: UIViewController {
 //MARK: - メソッド
 private extension CreateTaskViewController {
     
-//MARK: - PickerViewのセットアップ
+//    func outsideTapped() {
+//        let gesture = UITapGestureRecognizer(target: self, action: #selector(CreateTaskViewController.tapHandle))
+//        view.addGestureRecognizer(gesture)
+//    }
+//    
+//    @objc func tapHandle() {
+//        print(#function)
+//        view.endEditing(true)
+//    }
+
+//MARK: TextField のセットアップ
+    func setUpNameTextField(){
+        print(#function)
+        nameTextField.delegate = self
+    }
+
+//MARK:  PickerViewのセットアップ
     func setUpPickerView(){
         // ピッカー設定
         pickerView.delegate = self
@@ -61,7 +78,7 @@ private extension CreateTaskViewController {
         genreTextField.inputAccessoryView = toolbar
     }
 
-//MARK: - PickerViewの値を数値に変換
+//MARK:  PickerViewの値を数値に変換
     //mySectionRows[sectionNumber]として使用する
     func genreIndex(_ genreText: String) -> Int {
         let sectionNumber : Int
@@ -87,8 +104,8 @@ private extension CreateTaskViewController {
     }
 }
 
-
-//MARK: - PickerViewDelegate
+//MARK: - PickerViewの設定
+//MARK:  PickerViewDelegate
 extension CreateTaskViewController: UIPickerViewDelegate {
     
     func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
@@ -100,14 +117,22 @@ extension CreateTaskViewController: UIPickerViewDelegate {
     }
 }
 
- //MARK: - PickerViewDatasource
+ //MARK:  PickerViewDatasource
 extension CreateTaskViewController: UIPickerViewDataSource {
     
     func numberOfComponents(in pickerView: UIPickerView) -> Int {
         return 1
     }
 }
-    
-    
+
+
+//MARK: -TextFieldDelegateの設定
+extension CreateTaskViewController: UITextFieldDelegate {
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        print(#function)
+        textField.resignFirstResponder()
+        return true
+    }
+}
 
 

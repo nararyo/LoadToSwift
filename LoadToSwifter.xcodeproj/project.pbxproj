@@ -120,12 +120,12 @@
 		4B87E4DA24F0C79D000B34EC /* LoadToSwifter */ = {
 			isa = PBXGroup;
 			children = (
-				4B237AA72527491000162C68 /* View */,
 				4B87E4DB24F0C79D000B34EC /* AppDelegate.swift */,
 				4B87E4DD24F0C79D000B34EC /* SceneDelegate.swift */,
 				4B87E4E424F0C7A1000B34EC /* Assets.xcassets */,
 				4B87E4E624F0C7A1000B34EC /* LaunchScreen.storyboard */,
 				4B87E4E924F0C7A1000B34EC /* Info.plist */,
+				4B237AA72527491000162C68 /* View */,
 				4B579CDF24F10C0E0043CE0B /* Model */,
 				4B87E4F424F0C84B000B34EC /* ViewController */,
 			);
