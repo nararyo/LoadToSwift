@@ -12,7 +12,7 @@ class Task {
     
     var name: String?
     var mention: String?
-    var ahievement: Double?
+    var achievement: Double?
     
     init?(name: String, mention: String? = nil, achivement: Double = 1){
         self.name = name

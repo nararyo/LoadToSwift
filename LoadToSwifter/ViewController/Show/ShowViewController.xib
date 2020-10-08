@@ -9,6 +9,8 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="ShowViewController" customModule="LoadToSwifter" customModuleProvider="target">
             <connections>
+                <outlet property="cosmosView" destination="x5Y-y5-iBJ" id="qP2-bB-WL8"/>
+                <outlet property="mentionTextView" destination="XMi-Xd-FGx" id="3zd-o1-G3t"/>
                 <outlet property="selectedText" destination="uFe-9c-jfk" id="XdI-QY-AZn"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
@@ -27,7 +29,7 @@
                     <nil key="textColor"/>
                     <nil key="highlightedColor"/>
                 </label>
-                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="x5Y-y5-iBJ" customClass="CosmosView" customModule="Cosmos">
+                <view contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="x5Y-y5-iBJ" customClass="CosmosView" customModule="Cosmos">
                     <rect key="frame" x="36" y="177.5" width="120" height="20"/>
                     <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                     <userDefinedRuntimeAttributes>
@@ -36,7 +38,7 @@
                         </userDefinedRuntimeAttribute>
                     </userDefinedRuntimeAttributes>
                 </view>
-                <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="https://dev.classmethod.jp/articles/cosmos-star-rating-control/" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="XMi-Xd-FGx">
+                <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" text="https://dev.classmethod.jp/articles/cosmos-star-rating-control/" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="XMi-Xd-FGx">
                     <rect key="frame" x="20" y="245.5" width="374" height="613"/>
                     <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                     <constraints>

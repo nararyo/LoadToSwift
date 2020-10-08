@@ -59,6 +59,16 @@ extension ListViewController: CreateTaskViewControllerDelegate {
     }
 }
 
+extension ListViewController: ShowViewControllerDelegate {
+    
+    func editTask(task: Task, indexPath: IndexPath) {
+        print(#function)
+        var updateTask = mySectionRows[indexPath.section].row[indexPath.row]
+        updateTask = task
+        print(updateTask.mention!)
+        todoTable.reloadData()
+    }
+}
 //MARK: -datasourceのセットアップ
 extension ListViewController: UITableViewDataSource{
     
@@ -87,15 +97,19 @@ extension ListViewController: UITableViewDelegate {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: "ListTableViewCell", for: indexPath) as? ListTableViewCell else {
             return UITableViewCell()
         }
-        cell.cosmosView.rating = 0
-        cell.taskLabel?.text = "\(mySectionRows[indexPath.section].row[indexPath.row].name ?? "名無し")"
+        let task = mySectionRows[indexPath.section].row[indexPath.row]
+        cell.cosmosView.rating = task.achievement ?? 0
+        cell.taskLabel?.text = "\(task.name ?? "名無し")"
         return cell
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         print(#function)
         let showVC = ShowViewController()
-        showVC.text = mySectionRows[indexPath.section].row[indexPath.row].name!
+        //ここをモデルでの受け渡しにする
+        showVC.selectedTask = mySectionRows[indexPath.section].row[indexPath.row]
+        showVC.didSelectRowAt = indexPath
+        showVC.delegate = self
         navigationController?.pushViewController(showVC, animated: true)
         tableView.deselectRow(at: indexPath, animated: true)
     }
