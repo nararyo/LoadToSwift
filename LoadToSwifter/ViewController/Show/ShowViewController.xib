@@ -9,6 +9,8 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="ShowViewController" customModule="LoadToSwifter" customModuleProvider="target">
             <connections>
+                <outlet property="cosmosView" destination="x5Y-y5-iBJ" id="qP2-bB-WL8"/>
+                <outlet property="mentionTextView" destination="XMi-Xd-FGx" id="3zd-o1-G3t"/>
                 <outlet property="selectedText" destination="uFe-9c-jfk" id="XdI-QY-AZn"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
@@ -18,23 +20,51 @@
             <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="テキスト" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uFe-9c-jfk">
-                    <rect key="frame" x="107" y="124" width="200" height="20.5"/>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="テキスト" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uFe-9c-jfk">
+                    <rect key="frame" x="36" y="104" width="200" height="25.5"/>
                     <constraints>
                         <constraint firstAttribute="width" constant="200" id="aTy-86-dN2"/>
                     </constraints>
-                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="21"/>
                     <nil key="textColor"/>
                     <nil key="highlightedColor"/>
                 </label>
+                <view contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="x5Y-y5-iBJ" customClass="CosmosView" customModule="Cosmos">
+                    <rect key="frame" x="36" y="177.5" width="120" height="20"/>
+                    <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                    <userDefinedRuntimeAttributes>
+                        <userDefinedRuntimeAttribute type="number" keyPath="rating">
+                            <real key="value" value="1"/>
+                        </userDefinedRuntimeAttribute>
+                    </userDefinedRuntimeAttributes>
+                </view>
+                <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" text="https://dev.classmethod.jp/articles/cosmos-star-rating-control/" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="XMi-Xd-FGx">
+                    <rect key="frame" x="20" y="245.5" width="374" height="613"/>
+                    <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="374" id="V0B-yI-Zj9"/>
+                        <constraint firstAttribute="height" constant="613" id="cyd-BD-bhS"/>
+                    </constraints>
+                    <color key="textColor" systemColor="labelColor" cocoaTouchSystemColor="darkTextColor"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                    <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                </textView>
             </subviews>
             <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
             <constraints>
-                <constraint firstItem="uFe-9c-jfk" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" constant="80" id="MSw-zp-xHw"/>
-                <constraint firstItem="uFe-9c-jfk" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="O5W-JH-2kY"/>
+                <constraint firstItem="x5Y-y5-iBJ" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="36" id="4nk-ml-yTi"/>
+                <constraint firstItem="uFe-9c-jfk" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" constant="60" id="6Of-y1-qnZ"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="XMi-Xd-FGx" secondAttribute="trailing" constant="20" id="Oeo-Mp-4nc"/>
+                <constraint firstItem="XMi-Xd-FGx" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="20" id="TDR-BZ-v2V"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="XMi-Xd-FGx" secondAttribute="trailing" constant="20" id="Tcf-RJ-F7j"/>
+                <constraint firstItem="XMi-Xd-FGx" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="20" id="Z4h-1X-L6N"/>
+                <constraint firstItem="XMi-Xd-FGx" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="dYy-e0-zrC"/>
+                <constraint firstItem="uFe-9c-jfk" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="36" id="i5W-zG-7Th"/>
+                <constraint firstItem="x5Y-y5-iBJ" firstAttribute="top" secondItem="uFe-9c-jfk" secondAttribute="bottom" constant="48" id="mhj-GV-SJA"/>
+                <constraint firstItem="XMi-Xd-FGx" firstAttribute="top" secondItem="x5Y-y5-iBJ" secondAttribute="bottom" constant="48" id="s6M-lT-DWt"/>
             </constraints>
             <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
-            <point key="canvasLocation" x="139" y="120"/>
+            <point key="canvasLocation" x="137.68115942028987" y="119.86607142857142"/>
         </view>
     </objects>
 </document>

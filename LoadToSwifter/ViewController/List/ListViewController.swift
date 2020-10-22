@@ -41,6 +41,7 @@ private extension ListViewController {
         todoTable.delegate = self
         todoTable.dataSource = self
         todoTable.register(UITableViewCell.self, forCellReuseIdentifier: "cell")
+        todoTable.register(UINib.init(nibName: "ListTableViewCell", bundle: nil), forCellReuseIdentifier: "ListTableViewCell")
     }
 }
 
@@ -58,6 +59,16 @@ extension ListViewController: CreateTaskViewControllerDelegate {
     }
 }
 
+extension ListViewController: ShowViewControllerDelegate {
+    
+    func editTask(task: Task, indexPath: IndexPath) {
+        print(#function)
+        var updateTask = mySectionRows[indexPath.section].row[indexPath.row]
+        updateTask = task
+        print(updateTask.mention!)
+        todoTable.reloadData()
+    }
+}
 //MARK: -datasourceのセットアップ
 extension ListViewController: UITableViewDataSource{
     
@@ -83,15 +94,22 @@ extension ListViewController: UITableViewDelegate {
     //セルの設定
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
-        let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath)
-        cell.textLabel?.text = "\(mySectionRows[indexPath.section].row[indexPath.row].name ?? "名無し")"
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: "ListTableViewCell", for: indexPath) as? ListTableViewCell else {
+            return UITableViewCell()
+        }
+        let task = mySectionRows[indexPath.section].row[indexPath.row]
+        cell.cosmosView.rating = task.achievement ?? 0
+        cell.taskLabel?.text = "\(task.name ?? "名無し")"
         return cell
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         print(#function)
         let showVC = ShowViewController()
-        showVC.text = mySectionRows[indexPath.section].row[indexPath.row].name!
+        //ここをモデルでの受け渡しにする
+        showVC.selectedTask = mySectionRows[indexPath.section].row[indexPath.row]
+        showVC.didSelectRowAt = indexPath
+        showVC.delegate = self
         navigationController?.pushViewController(showVC, animated: true)
         tableView.deselectRow(at: indexPath, animated: true)
     }
